@@ -9,10 +9,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
-public class EjarestanScraper {
+public class EjarestanScraper2 {
 
     private static final String BASE_URL = "https://www.ejarestan.ir/v/";
-    private static final int START_ID = 1908;
+    private static final int START_ID = 795;
     private static final int END_ID = 121904;
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class EjarestanScraper {
             MongoDatabase database = mongoClient.getDatabase("ejarestan_db");
             MongoCollection<Document> collection = database.getCollection("posts");
 
-            for (int pk = START_ID; pk <= END_ID/3; pk++) {
+            for (int pk =END_ID; pk > END_ID*2/3; pk--) {
                 String url = BASE_URL + pk + "/";
                 try {
                     // Fetch and parse the HTML
